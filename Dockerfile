@@ -23,6 +23,8 @@ RUN apt-get update && \
     ca-certificates wget libffi7 build-essential && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
+    
+
 
 WORKDIR /home
 
@@ -38,3 +40,6 @@ ENV KEY_PATH=/home/key.pem
 ENV CERT_PATH=/home/cert.pem
 
 FROM ghcr.io/parkervcp/yolks:debian
+
+RUN apt-get update && apt-get install libffi7
+
